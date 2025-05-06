@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Profile - BrainQuiz</title>
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('header') %>
+    
+    <div class="profile-page-content">
+        <h1>HI, <%= user.username.toUpperCase() %></h1>
+        
+        <div class="history-header">
+            <span class="star-icon">✶</span>
+            <div class="history-title">HISTORY</div>
+            <div class="history-line"></div>
+        </div>
+
+        <div class="stats-container">
+            <!-- Date Column -->
+            <div class="stats-column">
+                <div class="column-icon">
+                    <img src="/images/calendar-icon.png" alt="Calendar">
+                </div>
+                <div class="stats-bubble">
+                    <h2>DATE</h2>
+                    <div class="bubble-content <%= (user.quizHistory && user.quizHistory.length >= 4) ? 'scrollable' : '' %>">
+                        <% if (user.quizHistory && user.quizHistory.length > 0) { %>
+                            <% for(let i = 0; i < user.quizHistory.length; i++) { %>
+                                <div class="stat-entry" id="date-<%= i %>">
+                                    <% 
+                                        const quizDate = new Date(user.quizHistory[i].date);
+                                        const month = quizDate.getMonth() + 1;
+                                        const day = quizDate.getDate();
+                                        const year = quizDate.getFullYear();
+                                        const hours = quizDate.getHours();
+                                        const minutes = quizDate.getMinutes().toString().padStart(2, '0');
+                                        const ampm = hours >= 12 ? 'PM' : 'AM';
+                                        const formattedHours = hours % 12 || 12;
+                                    %>
+                                    <%= month %>/<%= day %>/<%= year %><br>
+                                    <%= formattedHours %>:<%= minutes %>:00 <%= ampm %>
+                                </div>
+                            <% } %>
+                        <% } else { %>
+                            <div class="no-data">No quiz history yet</div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vertical line divider -->
+            <div class="column-divider"></div>
+
+            <!-- Score Column -->
+            <div class="stats-column">
+                <div class="column-icon">
+                    <img src="/images/score-icon.png" alt="Score">
+                </div>
+                <div class="stats-bubble">
+                    <h2>SCORE</h2>
+                    <div class="bubble-content <%= (user.quizHistory && user.quizHistory.length >= 4) ? 'scrollable' : '' %>">
+                        <% if (user.quizHistory && user.quizHistory.length > 0) { %>
+                            <% for(let i = 0; i < user.quizHistory.length; i++) { %>
+                                <div class="stat-entry" id="score-<%= i %>">
+                                    <%= Math.round((user.quizHistory[i].score / user.quizHistory[i].totalQuestions) * 100) %>%
+                                </div>
+                            <% } %>
+                        <% } else { %>
+                            <div class="no-data">No scores yet</div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vertical line divider -->
+            <div class="column-divider"></div>
+
+            <!-- Average Column -->
+            <div class="stats-column">
+                <div class="column-icon">
+                    <img src="/images/chart-icon.png" alt="Chart">
+                </div>
+                <div class="stats-bubble">
+                    <h2>AVERAGE</h2>
+                    <div class="average-container">
+                        <% 
+                            let avg = 0;
+                            if (user.quizHistory && user.quizHistory.length > 0) {
+                                let sum = 0;
+                                for(let i = 0; i < user.quizHistory.length; i++) {
+                                    sum += (user.quizHistory[i].score / user.quizHistory[i].totalQuestions) * 100;
+                                }
+                                avg = Math.round(sum / user.quizHistory.length);
+                        %>
+                            <div class="average-score"><%= avg %>%</div>
+                        <% } else { %>
+                            <div class="no-data">No average yet</div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Apply settings from localStorage -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Load saved settings
+            const savedDarkMode = localStorage.getItem("darkMode");
+            const savedFontSize = localStorage.getItem("fontSize");
+            
+            // Apply dark mode if saved
+            if (savedDarkMode === "true") {
+                document.body.classList.add("dark-mode");
+            }
+            
+            // Apply font size if saved
+            if (savedFontSize) {
+                document.documentElement.style.fontSize = savedFontSize;
+            }
+        });
+    </script>
+</body>
+</html>

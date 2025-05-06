@@ -238,3 +238,21 @@ body.dark-mode .nav-btn:hover {
 body.dark-mode .nav-btn:hover {
   background-color: #5b4fd1;
 }
+
+/* Add these styles to indicate correct/incorrect answers */
+.option-btn.correct {
+  background-color: #4CAF50 !important; /* Green for correct */
+  color: white !important;
+  border-color: #45a049 !important;
+}
+
+.option-btn.incorrect {
+  background-color: #f44336 !important; /* Red for incorrect */
+  color: white !important;
+  border-color: #d32f2f !important;
+}
+
+/* Add a bit of transition to make it look nice */
+.option-btn {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

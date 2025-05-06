@@ -5,7 +5,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
-const questionsRouter = require('./routes/questions'); // Import the questions route
+const questionsRouter = require('./routes/questions');
+const authRouter = require('./routes/auth'); // Add auth router
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
+app.use('/', authRouter); // Auth routes should be defined before other routes
 app.use('/', indexRouter);
 app.use('/quiz', questionsRouter);
 
