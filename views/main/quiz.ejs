@@ -3,297 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quiz - BrainQuiz</title>
-  <link rel="stylesheet" href="/stylesheets/header.css">
+  <title>Quiz</title>
   <link rel="stylesheet" href="/stylesheets/quiz.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    /* Add these styles for correct/incorrect answers */
-    .option-btn.correct {
-      background-color: #4CAF50 !important; /* Green for correct */
-      color: white !important;
-      border-color: #45a049 !important;
-    }
-
-    .option-btn.incorrect {
-      background-color: #f44336 !important; /* Red for incorrect */
-      color: white !important;
-      border-color: #d32f2f !important;
-    }
-
-    /* Add a bit of transition to make it look nice */
-    .option-btn {
-      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    }
-  </style>
 </head>
 <body>
+
+
   <%- include('header') %>
 
   <div class="quiz-container">
     <div class="progress-bar">
-      <div class="progress" id="progress-bar"></div>
+      <div class="progress" id="progress"></div>
     </div>
 
     <div class="question-header">
-      <div class="question-number" id="question-number">Question</div>
-      <div class="timer" id="timer">30</div>
+      <div class="question-number">Question <span id="current-question">1</span> of <span id="total-questions">10</span></div>
+      <div class="timer" id="timer">Time: 30s</div>
     </div>
 
     <div class="question-box">
-      <h2 id="question-text">Loading questions...</h2>
+      <h2 id="question-text">Loading question...</h2>
       <div class="options-container" id="options-container">
-        <!-- Options will be added dynamically by JavaScript -->
+        <!-- Options go here -->
       </div>
     </div>
 
     <div class="navigation-buttons">
-      <button id="prev-btn" class="nav-btn" disabled>Previous</button>
-      <button id="next-btn" class="nav-btn" disabled>Next</button>
-      <button id="submit-btn" class="nav-btn" style="display: none;">Submit</button>
+      <button id="prev-btn" class="nav-btn">Previous</button>
+      <button id="next-btn" class="nav-btn">Next</button>
+      <button id="submit-btn" class="nav-btn">Submit Quiz</button>
     </div>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      let quizData = [];
-      let currentQuestionIndex = 0;
-      let userAnswers = []; // Track user answers for score calculation
-      
-      // UI Elements
-      const progressBar = document.getElementById('progress-bar');
-      const questionNumber = document.getElementById('question-number');
-      const questionText = document.getElementById('question-text');
-      const optionsContainer = document.getElementById('options-container');
-      const prevButton = document.getElementById('prev-btn');
-      const nextButton = document.getElementById('next-btn');
-      const submitButton = document.getElementById('submit-btn');
-      
-      // Fetch questions from the API
-      fetch('/quiz/quiz')
-        .then(response => response.json())
-        .then(data => {
-          quizData = data;
-          console.log("Quiz data loaded:", quizData);
-          
-          // Initialize the userAnswers array
-          userAnswers = new Array(quizData.length).fill(null);
-          
-          // Update each question to identify the correct option index
-          quizData.forEach((question, idx) => {
-            question.correctOptionIndex = question.options.indexOf(question.correctAnswer);
-            console.log(`Question ${idx+1}: Correct answer is "${question.correctAnswer}" (index ${question.correctOptionIndex})`);
-          });
-          
-          // Start the quiz
-          loadQuestion(0);
-          prevButton.disabled = true;
-          nextButton.disabled = false;
-        })
-        .catch(error => {
-          console.error('Error fetching questions:', error);
-          questionText.textContent = 'Error loading questions. Please try again later.';
-        });
-      
-      // Initialize quiz
-      function loadQuestion(index) {
-        if (!quizData.length) return;
-        
-        const question = quizData[index];
-        
-        // Update progress bar
-        progressBar.style.width = `${((index + 1) / quizData.length) * 100}%`;
-        
-        // Update question number
-        questionNumber.textContent = `Question ${index + 1}/${quizData.length}`;
-        
-        // Update question text
-        questionText.textContent = question.question;
-        
-        // Clear previous options
-        optionsContainer.innerHTML = '';
-        
-        // Add new options
-        question.options.forEach((option, optionIndex) => {
-          const button = document.createElement('button');
-          button.className = 'option-btn';
-          button.textContent = option;
-          button.dataset.index = optionIndex;
-          button.dataset.correct = (optionIndex === question.correctOptionIndex);
-          
-          button.addEventListener('click', function() {
-            selectOption(this, optionIndex);
-          });
-          
-          optionsContainer.appendChild(button);
-        });
-        
-        // Update navigation buttons
-        prevButton.disabled = (index === 0);
-        nextButton.style.display = (index === quizData.length - 1) ? 'none' : 'inline-block';
-        submitButton.style.display = (index === quizData.length - 1) ? 'inline-block' : 'none';
-        
-        // Check if this question has a saved answer
-        if (userAnswers[index] !== null) {
-          const allOptions = optionsContainer.querySelectorAll('.option-btn');
-          const selectedOption = allOptions[userAnswers[index]];
-          if (selectedOption) {
-            // Mark selected answer
-            selectedOption.classList.add('selected');
-            
-            // Show correct/incorrect indication
-            const correctOption = Array.from(allOptions).find(opt => opt.dataset.correct === "true");
-            if (correctOption) {
-              correctOption.classList.add('correct');
-            }
-            
-            if (userAnswers[index] !== question.correctOptionIndex) {
-              selectedOption.classList.add('incorrect');
-            }
-            
-            // Disable all options
-            allOptions.forEach(button => {
-              button.disabled = true;
-            });
-          }
-        } else {
-          // Only start timer for unanswered questions
-          resetTimer();
-        }
-      }
-      
-      // Timer functionality
-      let timeLeft = 30;
-      let timerInterval;
-      const timerElement = document.getElementById('timer');
-      
-      function resetTimer() {
-        clearInterval(timerInterval);
-        timeLeft = 30;
-        timerElement.textContent = timeLeft;
-        
-        timerInterval = setInterval(function() {
-          timeLeft--;
-          timerElement.textContent = timeLeft;
-          
-          if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            // Only show correct answer when time runs out, don't auto-select
-            const allOptions = optionsContainer.querySelectorAll('.option-btn');
-            allOptions.forEach(button => {
-              if (button.dataset.correct === "true") {
-                button.classList.add('correct');
-              }
-              button.disabled = true;
-            });
-          }
-        }, 1000);
-      }
-      
-      // Handle option selection
-      function selectOption(button, optionIndex) {
-        // Save user's answer
-        userAnswers[currentQuestionIndex] = optionIndex;
-        
-        // Log for debugging
-        console.log(`Question ${currentQuestionIndex + 1}: Selected option index ${optionIndex}`);
-        console.log(`Correct option index: ${quizData[currentQuestionIndex].correctOptionIndex}`);
-        console.log(`Is answer correct? ${optionIndex === quizData[currentQuestionIndex].correctOptionIndex}`);
-        
-        // First, remove 'selected' class from all buttons
-        const allOptions = optionsContainer.querySelectorAll('.option-btn');
-        allOptions.forEach(btn => {
-          btn.classList.remove('selected');
-        });
-        
-        // Add 'selected' class to the clicked button
-        button.classList.add('selected');
-        
-        // Show correct/incorrect immediately
-        showCorrectAnswer();
-      }
-      
-      // Function to show correct answers
-      function showCorrectAnswer() {
-        const allOptions = optionsContainer.querySelectorAll('.option-btn');
-        
-        // First make sure to clear any existing correct/incorrect classes
-        allOptions.forEach(button => {
-          button.classList.remove('correct', 'incorrect');
-        });
-        
-        // Now add the appropriate classes
-        allOptions.forEach(button => {
-          // If this is the correct answer
-          if (button.dataset.correct === "true") {
-            button.classList.add('correct');
-          } 
-          // If this was selected but is incorrect
-          else if (button.classList.contains('selected')) {
-            button.classList.add('incorrect');
-          }
-        });
-        
-        // Disable all buttons after an answer is selected
-        allOptions.forEach(button => {
-          button.disabled = true;
-        });
-        
-        // Stop the timer
-        clearInterval(timerInterval);
-      }
-      
-      // Navigation button functionality
-      prevButton.addEventListener('click', function() {
-        if (currentQuestionIndex > 0) {
-          currentQuestionIndex--;
-          loadQuestion(currentQuestionIndex);
-        }
-      });
-      
-      nextButton.addEventListener('click', function() {
-        if (currentQuestionIndex < quizData.length - 1) {
-          currentQuestionIndex++;
-          loadQuestion(currentQuestionIndex);
-        }
-      });
-      
-      submitButton.addEventListener('click', function() {
-        // Calculate score
-        let score = 0;
-        for (let i = 0; i < quizData.length; i++) {
-          // Make sure we have an answer for this question
-          if (userAnswers[i] !== null) {
-            // Check if user answer matches correct answer
-            if (userAnswers[i] === quizData[i].correctOptionIndex) {
-              score++;
-            }
-          }
-        }
-        
-        // Calculate percentage
-        const percentage = Math.round((score / quizData.length) * 100);
-        
-        // Log for debugging
-        console.log("Final Score:", score, "/", quizData.length, " (", percentage, "%)");
-        console.log("User Answers:", userAnswers);
-        console.log("Correct Answers:", quizData.map(q => q.correctOptionIndex));
-        
-        // Store score in localStorage
-        localStorage.setItem('quiz_score', score.toString());
-        localStorage.setItem('total_questions', quizData.length.toString());
-        localStorage.setItem('score_percentage', percentage.toString());
-        
-        // Redirect to results page
-        window.location.href = '/results';
-      });
-      
-      // Apply saved dark mode setting
-      const savedDarkMode = localStorage.getItem("darkMode");
-      if (savedDarkMode === "true") {
-        document.body.classList.add("dark-mode");
-      }
-    });
-  </script>
+  <script src="/javascripts/quiz.js"></script>
 </body>
 </html>
