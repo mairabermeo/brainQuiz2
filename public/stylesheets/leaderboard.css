@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+nav {
+  height: 120px;
+  background-color: #00c4cc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin: 0 -75px;
+  width: calc(100% + 150px);
+}
+
+nav img {
+  height: 150px; /* Bigger logo */
+  object-fit: contain;
+  align-self: center;
+}
+
+.flipped {
+  transform: scaleX(-1);
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 0;
+}
+
+li {
+  display: inline;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.8em;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-align: center;
+  width: 180px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+}
+
+nav ul li:nth-child(1) a { background-color: #01f8d6; }
+nav ul li:nth-child(2) a { background-color: #fc94df; }
+nav ul li:nth-child(3) a { background-color: #fdb827; }
+nav ul li:nth-child(4) a { background-color: #d0b3f0; }
+nav ul li:nth-child(5) a { background-color: #4a63db; }
+
+nav a.active {
+  box-shadow: 0 0 15px white;
+}
+
+nav a:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+nav ul li:nth-child(5) a.icon-only {
+  background: none;
+  width: auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul li:nth-child(5) a.icon-only img {
+  height: 70px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+main.leaderboard {
+  background-color: #e6a8d7;
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+}
+
+main h1 {
+  font-size: 4em;
+  color: #1a1a1a;
+  margin-bottom: 50px;
+}
+
+.top-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  margin-bottom: 60px;
+}
+
+.leaf {
+  height: 160px; /* Bigger leaf */
+}
+
+.first-place {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  gap: 15px;
+  font-size: 1.8em;
+}
+
+.middle-row,
+.bottom-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.place {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4em;
+  gap: 12px;
+  text-align: center;
+}
+
+.avatar {
+  width: 160px;   /* Increased size */
+  height: 160px;
+  object-fit: cover;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.sixth, .seventh, .eighth, .ninth, .tenth {
+  clip-path: none;
+  background: none;
+}
+
+.trophies {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+
+.trophies img.trophy {
+  height: 180px; /* Bigger trophy left */
+}
+
+.your-rank {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.6em;
+}
+
+.your-rank img {
+  height: 180px; /* Bigger trophy right */
+}
+
+
+
+  
+    
