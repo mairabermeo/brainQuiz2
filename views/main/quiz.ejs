@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz - BrainQuiz</title>
+  <link rel="stylesheet" href="/stylesheets/quiz.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap">
+</head>
+<body>
+
+  <%- include('header') %>
+  <div class="quiz-container">
+    <div class="progress-bar">
+      <div class="progress" id="progress-bar"></div>
+    </div>
+
+    <div class="question-header">
+      <div class="question-number" id="question-number">Question 1/10</div>
+      <div class="timer" id="timer">45s</div>
+    </div>
+
+    <div class="question-box">
+      <h2 id="question-text">Loading questions...</h2>
+      <div class="options-container" id="options-container">
+        <!-- Options will be populated dynamically -->
+      </div>
+    </div>
+
+    <div class="navigation-buttons">
+      <button id="prev-btn" class="nav-btn">Previous</button>
+      <button id="next-btn" class="nav-btn">Next</button>
+      <button id="submit-btn" class="nav-btn" style="display: none;">Submit</button>
+    </div>
+  </div>
+
+  <script src="/javascripts/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+nav {
+  height: 100px;
+  background-color: #00c4cc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin: 0 -75px;
+  width: calc(100% + 150px);
+}
+
+nav img {
+  height: 120px;
+  object-fit: contain;
+  align-self: center;
+}
+
+.flipped {
+  transform: scaleX(-1);
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 15px; /* Reduced from 30px */
+  margin: 0;
+  align-items: center;
+  flex-wrap: nowrap; /* Ensures buttons stay in one line */
+}
+
+li {
+  display: inline;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.7em; /* Reduced from 2em */
+  font-weight: bold;
+  padding: 8px 15px; /* Reduced from 10px 20px */
+  border-radius: 30px;
+  text-align: center;
+  width: 180px; /* Reduced from 220px */
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+}
+
+nav ul li:nth-child(1) a {
+  background-color: #01f8d6;
+}
+
+nav ul li:nth-child(2) a {
+  background-color: #fc94df;
+}
+
+nav ul li:nth-child(3) a {
+  background-color: #fdb827;
+}
+
+nav ul li:nth-child(4) a {
+  background-color: #d0b3f0;
+}
+
+nav ul li:nth-child(5) a {
+  background-color: #4a63db; /* Using blue from your color scheme */
+}
+
+nav a.active {
+  box-shadow: 0 0 15px white;
+}
+
+nav a:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+nav ul li:nth-child(6) a.icon-only {
+  background: none;
+  width: auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul li:nth-child(6) a.icon-only img {
+  height: 70px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
