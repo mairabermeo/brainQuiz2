@@ -3,13 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quiz - BrainQuiz</title>
-  <link rel="stylesheet" href="/stylesheets/quiz.css">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap">
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="/styles/leaderboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <nav>
+    <img src="/images/logo.webp" alt="Logo" class="nav-logo">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/quiz">Quiz</a></li>
+      <li><a href="/results">Results</a></li>
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/settings" class="icon-only">
+        <img src="/images/settings-icon.png" alt="Settings">
+      </a></li>
+    </ul>
+    <img src="/images/logo.webp" alt="Logo" class="flipped">
+  </nav>
 
-  <%- include('header') %>
+  <main class="leaderboard">
+    <h1>LEADERSHIP BOARD</h1>
 
+    <div class="top-row">
+      <img src="/images/leaf left.png" alt="Leaf Left" class="leaf">
+      <div class="first-place">
+        <img src="/images/1 place.png" alt="1st Place" class="avatar">
+        <p>1ST PLACE</p>
+      </div>
+      <img src="/images/leaf right.png" alt="Leaf Right" class="leaf">
+    </div>
+
+    <div class="middle-row">
+      <div class="place second">
+        <img src="/images/flower.png" alt="2nd Place" class="avatar">
+        <p>2ND PLACE</p>
+      </div>
+      <div class="place third">
+        <img src="/images/flower.png" alt="3rd Place" class="avatar">
+        <p>3RD PLACE</p>
+      </div>
+      <div class="place fourth">
+        <img src="/images/flower.png" alt="4th Place" class="avatar">
+        <p>4TH PLACE</p>
+      </div>
+      <div class="place fifth">
+        <img src="/images/flower.png" alt="5th Place" class="avatar">
+        <p>5TH PLACE</p>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="place sixth">
+        <img src="/images/figure.png" alt="6th Place" class="avatar">
+        <p>6TH PLACE</p>
+      </div>
+      <div class="place seventh">
+        <img src="/images/figure.png" alt="7th Place" class="avatar">
+        <p>7TH PLACE</p>
+      </div>
+      <div class="place eighth">
+        <img src="/images/figure.png" alt="8th Place" class="avatar">
+        <p>8TH PLACE</p>
+      </div>
+      <div class="place ninth">
+        <img src="/images/figure.png" alt="9th Place" class="avatar">
+        <p>9TH PLACE</p>
+      </div>
+      <div class="place tenth">
+        <img src="/images/figure.png" alt="10th Place" class="avatar">
+        <p>10TH PLACE</p>
+      </div>
+    </div>
+
+    <div class="trophies">
+      <img src="/images/trophy.png" alt="Trophy Left" class="trophy">
+      <div class="your-rank">
+        <img src="/images/trophy right.png" alt="Trophy Right">
+        <p>YOUR RANK</p>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
+
