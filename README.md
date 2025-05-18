@@ -39,6 +39,9 @@ If you click the website link you don't have to do anything.
 ![Alt text](./public/images/login.png)
 ![Alt text](./public/images/quiz.png)
 ![Alt text](./public/images/settings.png)
+![Alt text](./public/images/leader1.png)
+![Alt text](./public/images/leader2.png)
+![Alt text](./public/images/results:noprofile.png)
 
 - For people with an account:
 ![Alt text](./public/images/results:prifile.png)
