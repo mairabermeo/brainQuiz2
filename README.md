@@ -29,9 +29,9 @@ If you click the website link you don't have to do anything.
 
 ## 👩‍💻 Team Members & Roles
 
-- *Faiza*: I worked on the HTML and CSS for the questions and results pages. Made the design layout for the loading page. Worked on the JavaScript for the settings page and the questions page. Assisted in the JavaScript for the results page. 
-- *Hanya*: I worked on the HTML, CSS and JS of the settings page. I also assisted with the CSS and HTML of the results page as well and added to the Quiz and Results page's JS to apply the saved settings to there. 
-- *Jude*: I worked on the JS of the quiz Page. I also assisted on the HTML and CSS for the quiz and results page. I made the design layout for the navigation bar on the quiz and results page.
+- *Faiza*: 
+- *Hanya*: 
+- *Jude*: 
 - *Maira*: For this project, I enhanced the homepage using CSS and EJS (HTML) to incorporate login and sign-up buttons, as well as an alert button that users can click to view recent updates. Additionally, I configured the MongoDB database, ensuring seamless data integration across all pages. I also implemented a timer feature, allowing users to select the desired duration for the quiz. The application was successfully deployed, and I conducted thorough testing to verify that all routes function correctly and that all components are properly interconnected.
 
 ## Website Photos
