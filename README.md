@@ -29,7 +29,7 @@ If you click the website link you don't have to do anything.
 
 ## 👩‍💻 Team Members & Roles
 
-- *Faiza*: 
+- *Faiza*: For this project, I created the design for the Leaderboard page and made sure it matched the look and feel of the rest of the app. Once the design was set, I built the page using EJS to display dynamic content and styled it with CSS to make it clean and easy to navigate.
 - *Hanya*: 
 - *Jude*: 
 - *Maira*: For this project, I enhanced the homepage using CSS and EJS (HTML) to incorporate login and sign-up buttons, as well as an alert button that users can click to view recent updates. Additionally, I configured the MongoDB database, ensuring seamless data integration across all pages. I also implemented a timer feature, allowing users to select the desired duration for the quiz. The application was successfully deployed, and I conducted thorough testing to verify that all routes function correctly and that all components are properly interconnected.
