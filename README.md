@@ -12,6 +12,7 @@ An improved web-based Brain Quiz Application developed collaboratively by our te
 - **Smart Results Page**: The results page dynamically adjusts based on user score, providing customized feedback.
 - **Update Timer**: Users can now select how long they want the quiz to be.
 - **Create a Profile**: User can now create a profile using their email to save their scores and progress.
+- **Instant Feedback**: Users view the correct answers to questions immediately upon choosing an answer.
 - **View Leadership Board **: The results page dynamically adjusts based on user score—providing customized feedback.
 
 ---
