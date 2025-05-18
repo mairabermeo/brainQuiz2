@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz</title>
+  <link rel="stylesheet" href="/stylesheets/header.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav>
+    <img src="/images/logo.webp" alt="Logo" class="nav-logo">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/quiz">Quiz</a></li>
+        <li><a href="/results">Results</a></li>
+        <li><a href="/leaderboard">Rank</a></li>
+
+        <% if (user) { %>
+            <li><a href="/profile">Profile</a></li>
+            <li class="user-info">
+                <span>Welcome, <br> <%= user.email %></span>
+            </li>
+        <% } else { %>
+            <li><a href="/login" class="profile-link">Profile</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+        <% } %>
+
+        <li><a href="/settings" class="icon-only">
+            <img src="/images/settings-icon.png" alt="Settings">
+        </a></li>
+    </ul>
+    <img src="/images/logo.webp" alt="Logo" class="flipped">
+  </nav>
+
+</body>
+</html>

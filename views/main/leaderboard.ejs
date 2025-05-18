@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="/stylesheets/leaderboard.css">
+</head>
+<body>
+
+  <%- include('header') %>
+  
+  <main class="leaderboard">
+
+    <div class="trophy-section">
+      <h1>LEADERSHIP BOARD</h1>
+    </div>
+
+    <!-- User Rank and Recent Score -->
+    <div class="your-rank">
+      <p>YOUR RANK: Loading...</p>
+      <p>RECENT SCORE: Loading...%</p>
+    </div>
+
+    <!-- Top Row - 1st Place -->
+    <div class="top-row"></div>
+
+    <!-- Middle Row - 2nd to 5th Place -->
+    <div class="middle-row"></div>
+
+    <!-- Bottom Row - 6th to 10th Place -->
+    <div class="bottom-row"></div>
+
+  </main>
+
+  <script src="/javascripts/leaderboard.js"></script>
+</body>
+</html>

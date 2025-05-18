@@ -1,0 +1,145 @@
+/* ========== Global Reset ========== */
+* {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+/* ========== Body Styling ========== */
+body {
+  font-family: 'Quicksand', sans-serif;
+  border-left: 75px solid #e6a8d7; 
+  border-right: 75px solid #e6a8d7; 
+  min-height: 100vh;
+  background: linear-gradient(135deg, #aec6ff, #fbe4ff);
+  overflow-x: hidden;
+}
+
+/* ========== Main Leaderboard Container ========== */
+main.leaderboard {
+  background-color: #e6a8d7;
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+/* ========== Main Heading Styling ========== */
+main h1 {
+  font-size: 3.5em;
+  font-weight: 900;
+  margin-bottom: 30px;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px #1a1a1a;
+}
+
+/* ========== User Rank Section ========== */
+.your-rank {
+  background-image: url('/images/trophy right.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 220px;
+  padding: 100px 80px;
+  margin-bottom: 40px;
+  color: #ffffff;
+  font-size: 0.8em;
+}
+
+.your-rank p {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+/* ========== Trophy Section Styling ========== */
+.trophy-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ========== Leaderboard Rows ========== */
+
+.top-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  background-color: #df205f;
+  padding: 3px 4px;
+  border-radius: 27px;
+}
+
+.top-row .place {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10px;
+  font-weight: bolder;
+}
+
+.middle-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  padding: 70px 10px;
+  border-radius: 12px;
+  background-color: #2046df;
+}
+
+.middle-row .place {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  padding: 30px 15px;
+  border-radius: 27px;
+  background-image: url('/images/flower.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+.middle-row .place p {
+  padding-bottom: 20px;
+}
+
+.bottom-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  padding: 70px 10px;
+  border-radius: 12px;
+}
+
+.bottom-row .place {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  background-color: #057296;
+  padding: 30px 15px;
+  border-radius: 27px;
+  background-image: url('/images/figure.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-weight: bolder;
+  font-size: 15px;
+}

@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 16px;
+  }
+  
+  body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1em;
+    border-left: 75px solid #fc94df;
+    border-right: 75px solid #fc94df;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #aec6ff, #fbe4ff);
+  }
+  
+  /* ========== SIGNUP FORM ========== */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 55px;
+  }
+  
+  .login-box {
+    background: rgb(247, 232, 245);
+    border-radius: 30px;
+    padding: 30px 30px;
+    width: 400px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .form-box {
+    background: #fff;
+    border: 15px solid #caa3e6;
+    border-radius: 45px;
+    padding: 20px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+  }
+  
+  .login-icon {
+    width: 100px;
+    margin-bottom: 15px;
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  p {
+    color: #888;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+  
+  button {
+    width: 100%;
+    background: #ff95d0;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #ff70c0;
+  }
+  
+  .signup-text {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .signup-text a {
+    color: #ff70c0;
+    text-decoration: none;
+  }
+  
+  /* ========== DARK MODE ========== */
+  
+  body.dark-mode {
+    background: #1c1c2a !important;
+    color: white;
+    border-left: 75px solid #1c1c2a;
+    border-right: 75px solid #1c1c2a;
+  }
+  
+  body.dark-mode .login-box {
+    background: #2e2e3e;
+  }
+  
+  body.dark-mode .form-box {
+    background: #1f1f2f;
+    border-color: #4a4a6a;
+  }
+  
+  body.dark-mode input,
+  body.dark-mode h2,
+  body.dark-mode p {
+    background: #2e2e3e;
+    color: white;
+    border: 1px solid #666;
+  }
+  
+  body.dark-mode button {
+    background: #6c5ce7;
+  }
+  
+  body.dark-mode button:hover {
+    background: #5b4fd1;
+  }
+  
+  body.dark-mode .signup-text a {
+    color: #c7a2ff;
+  }
+  
+  body.dark-mode nav {
+    background-color: #2e2e3e;
+  }
+  
+  body.dark-mode nav a {
+    background-color: #4a4a6a;
+    color: white;
+  }
+  
+  body.dark-mode nav a:hover {
+    background-color: #5f5f8f;
+  }
+  
+  /* ========== CHARACTERS ========== */
+  
+  .characters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 40px;
+  }
+  
+  .characters img {
+    width: 90px;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 20px;
+  }

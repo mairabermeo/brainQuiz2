@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz - Sign Up</title>
+  <link rel="stylesheet" href="/stylesheets/signup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <%- include('header') %>
+
+  <div class="login-container">
+    <div class="login-box">
+      <div class="login-card">
+        <img src="/images/logo.webp" class="login-icon" alt="Cute Brain">
+        <h2>Brain Challenge Quiz</h2>
+        <p class="subtitle">Sign Up!</p>
+
+        <div class="form-box">
+          <input type="email" id="email" placeholder="Enter your email" required>
+          <input type="password" id="password" placeholder="Enter your password" required>
+          <button id="signup-btn" type="button">Sign Up!</button>
+        </div>
+
+        <p class="signup-text">Already have an account? <a href="/login">Log in</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="characters">
+    <img src="/images/image1.webp" alt="Image 1">
+    <img src="/images/image2.webp" alt="Image 2">
+    <img src="/images/image3.webp" alt="Image 3">
+    <img src="/images/image4.webp" alt="Image 4">
+    <img src="/images/image5.webp" alt="Image 5">
+    <img src="/images/image6.webp" alt="Image 6">
+  </div>
+
+  <script src="/javascripts/signup.js"></script>
+</body>
+</html>
