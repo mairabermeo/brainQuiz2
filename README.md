@@ -36,4 +36,7 @@ If you click the website link you don't have to do anything.
 
 ## Website Photos
 ![Alt text](./public/images/homepage.png)
+![Alt text](./public/images/login.png)
+![Alt text](./public/images/quiz.png)
+![Alt text](./public/images/setting.png)
 
